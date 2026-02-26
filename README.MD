@@ -1,166 +1,80 @@
-📄 API de Validação de CPF e CNPJ com Autenticação
+# API de Validação de CPF e CNPJ
 
-API REST desenvolvida em Python + Flask para validação de documentos fiscais brasileiros (CPF e CNPJ), com autenticação de usuários e controle de acesso via sessão.
+API REST desenvolvida em **Python (Flask)** para validação de documentos brasileiros (CPF e CNPJ), com autenticação de usuários e exposição de regras de negócio via HTTP.
 
-O projeto expõe regras reais de validação através de endpoints HTTP, permitindo integração com sistemas externos como:
+O projeto demonstra a aplicação de lógica de domínio real em um serviço backend consumível por outras aplicações.
 
-aplicações web
+---
 
-sistemas de cadastro
+## Principais Responsabilidades
 
-ERPs
+- Autenticação de usuários (login e sessão)
+- Validação de CPF
+- Validação de CNPJ
+- Sanitização de entrada
+- Verificação de dígitos validadores (Módulo 11)
+- Rejeição de padrões inválidos
 
-formulários digitais
+---
 
-🚀 Funcionalidades
-🔐 Autenticação de Usuário
+## Arquitetura
 
-Cadastro de usuário
+A API foi estruturada com separação de responsabilidades:
 
-Login
+- **Rotas** → Interface HTTP
+- **Serviços de validação** → Regra de negócio
+- **Autenticação** → Controle de acesso
 
-Controle de sessão
+Esse modelo permite que a lógica de validação seja reutilizada independentemente da camada de transporte.
 
-📑 Validação de Documentos
+---
 
-A API realiza validação completa de:
+## Endpoints
 
-✔️ CPF
-✔️ CNPJ
+### Autenticação
 
-Incluindo:
+POST `/user/register`  
+POST `/user/login`
 
-Sanitização de entrada
+---
 
-Remoção de máscara
+### Validação
 
-Cálculo de dígitos verificadores
+POST `/validate/cpf`
 
-Bloqueio de sequências inválidas
-
-A validação segue o padrão oficial baseado no algoritmo Módulo 11.
-
-🌐 Endpoints
-👤 Usuário
-Cadastro
-POST /user/register
-
-Body:
-
-{
-  "username": "usuario",
-  "password": "senha"
-}
-Login
-POST /user/login
-
-Body:
-
-{
-  "username": "usuario",
-  "password": "senha"
-}
-📄 Validação
-Validar CPF
-POST /validate/cpf
-
-Body:
-
+```json id="61zzld"
 {
   "cpf": "12345678909"
 }
 
-Resposta:
-
-{
-  "valid": true
-}
-Validar CNPJ
 POST /validate/cnpj
-
-Body:
 
 {
   "cnpj": "11222333000181"
 }
-
-Resposta:
-
-{
-  "valid": true
-}
-🧠 Regras Aplicadas
-
-A API valida documentos com base em:
-
-Estrutura numérica correta
-
-Rejeição de padrões inválidos (ex: 11111111111)
-
-Cálculo dos dígitos verificadores
-
-Isso garante validação real e não apenas verificação de formato.
-
-🏗️ Arquitetura
-
-O projeto segue separação de responsabilidades:
-
-Routes → Interface HTTP
-
-Services / Validators → Regra de negócio
-
-Auth → Controle de sessão
-
-🛠️ Tecnologias Utilizadas
+Stack
 
 Python
 
 Flask
 
-Flask Sessions
-
-Regex
-
-Algoritmo Módulo 11
-
-▶️ Como Executar
-
-Clone o repositório:
-
+Execução
 git clone https://github.com/Dev2TT/Validador-CPF-CNPJ.git
 cd Validador-CPF-CNPJ
-
-Instale as dependências:
-
 pip install -r requirements.txt
-
-Execute:
-
 python app.py
+Objetivo do Projeto
 
-A API estará disponível em:
+Demonstrar:
 
-http://localhost:5000
-🧪 Testes
+Implementação de regras fiscais reais
 
-Você pode testar os endpoints utilizando:
+Exposição de serviços via API REST
 
-Postman
+Estruturação básica de autenticação
 
-Insomnia
+Separação entre lógica de negócio e camada de acesso
 
-Curl
+Autor
 
-📌 Possíveis Evoluções
-
-Testes automatizados
-
-JWT Authentication
-
-Suporte a CNPJ alfanumérico (novo padrão Receita Federal)
-
-Deploy em nuvem
-
-👨‍💻 Autor
-
-Desenvolvido por Victtor Oliveira
+Victtor Oliveira
