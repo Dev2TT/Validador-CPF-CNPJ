@@ -52,19 +52,22 @@ POST /validate/cnpj
 {
   "cnpj": "11222333000181"
 }
-Stack
 
-Python
+---
+### Stack
+- Python
+- Flask
+- SQLAlchemy (ORM)
+---
+### Execução
 
-Flask
-
-Execução
-git clone https://github.com/Dev2TT/Validador-CPF-CNPJ.git
-cd Validador-CPF-CNPJ
-pip install -r requirements.txt
-python app.py
-Objetivo do Projeto
-
+- git clone https://github.com/Dev2TT/Validador-CPF-CNPJ.git
+- cd Validador-CPF-CNPJ
+- pip install -r requirements.txt
+- python app.py
+---
+###Objetivo do Projeto
+---
 Demonstrar:
 
 Implementação de regras fiscais reais
@@ -74,7 +77,7 @@ Exposição de serviços via API REST
 Estruturação básica de autenticação
 
 Separação entre lógica de negócio e camada de acesso
+---
+### Autor
 
-Autor
-
-Victtor Oliveira
+- Victtor Oliveira
