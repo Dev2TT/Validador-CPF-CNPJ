@@ -2,6 +2,7 @@ from flask import Flask
 from config import Config
 from extensions import db
 from app.routes.usuario_route import usuario_bp
+from app.routes.documento_route import documento_bp
 
 def create_app():
     app=Flask(__name__)
@@ -13,5 +14,6 @@ def create_app():
         print(f'Nao foi possível inicializar o banco de dados {str(e.args)}')
 
     app.register_blueprint(usuario_bp)
+    app.register_blueprint(documento_bp)
 
     return app
