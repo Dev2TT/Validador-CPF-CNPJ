@@ -1,8 +1,8 @@
 from flask import Flask
 from config import Config
 from extensions import db
-from app.routes.usuario_route import usuario_bp
-from app.routes.documento_route import documento_bp
+from app.controller.usuario_route import usuario_bp
+from app.controller.documento_route import documento_bp
 
 def create_app():
     app=Flask(__name__)

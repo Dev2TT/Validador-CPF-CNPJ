@@ -1,4 +1,3 @@
-from extensions import db
 import requests
 
 open_cnpj_api="https://api.opencnpj.org/"
